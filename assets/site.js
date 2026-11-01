@@ -1,4 +1,4 @@
-const colors = {vocals:'Vocals',drums:'Drums',bass:'Bass',guitar:'Guitar',piano:'Piano',other:'Other'};
+import {releaseDownload} from './releases.mjs';
 for (const [i, row] of [...document.querySelectorAll('[data-wave]')].entries()) {
   const svg = row.querySelector('svg');
   let path = '';
@@ -20,15 +20,15 @@ try {
   if(!response.ok)throw new Error('Release metadata unavailable');
   const release=await response.json();
   for(const node of document.querySelectorAll('[data-current-version]'))node.textContent=release.version;
-  const url=release.downloadUrl ? new URL(release.downloadUrl) : null;
-  const ready=release.status==='released' && url?.protocol==='https:' && url.hostname==='github.com' && url.pathname.startsWith('/techwithdv17/') && url.pathname.includes('/releases/download/') && /^[a-f0-9]{64}$/.test(release.sha256||'') && Number.isSafeInteger(release.downloadBytes) && release.downloadBytes>0;
-  if(ready){
+  const download=releaseDownload(release);
+  if(download){
     for(const button of document.querySelectorAll('[data-download]')){
-      const link=document.createElement('a');link.className=button.className;link.href=url.href;link.textContent='Download for Mac ↗';button.replaceWith(link);
+      const link=document.createElement('a');link.className=button.className;link.href=download.href;link.textContent=download.label;button.replaceWith(link);
     }
-    for(const note of document.querySelectorAll('[data-download-note]'))note.textContent=`Version ${release.version} · ${Math.round(release.downloadBytes/1000000)} MB download · Apple Silicon Mac`;
-    for(const node of document.querySelectorAll('[data-download-status]'))node.textContent='Available for download';
+    for(const note of document.querySelectorAll('[data-download-note]'))note.textContent=`Version ${release.version} · ${Math.round(release.downloadBytes/1000000)} MB · Apple Silicon${download.privateTest?' · GitHub sign-in required':''}`;
+    for(const node of document.querySelectorAll('[data-download-status]'))node.textContent=download.privateTest?'Neo test build · private download':'Available for download';
     for(const node of document.querySelectorAll('[data-preparing-only]'))node.hidden=true;
+    for(const node of document.querySelectorAll('[data-private-test]'))node.hidden=!download.privateTest;
     const checksum=document.querySelector('[data-checksum]');if(checksum){checksum.hidden=false;checksum.textContent=`SHA-256: ${release.sha256}`;}
   }
 }catch(error){

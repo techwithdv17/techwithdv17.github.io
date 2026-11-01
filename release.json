@@ -1,9 +1,9 @@
 {
   "app": "Stem Separator",
   "version": "1.2.1",
-  "status": "preparing",
+  "status": "private_test",
   "platform": "macOS · Apple Silicon",
-  "downloadUrl": null,
-  "sha256": null,
-  "downloadBytes": null
+  "downloadUrl": "https://github.com/techwithdv17/stem-separator/releases/download/v1.2.1-neo-test/Stem-Separator-1.2.1-Apple-Silicon-evaluation.zip",
+  "sha256": "65f8cdb537dbf1539ac5a64fdc8ebcc7c157ea27149cca1ea8713921f05268d0",
+  "downloadBytes": 243734561
 }
