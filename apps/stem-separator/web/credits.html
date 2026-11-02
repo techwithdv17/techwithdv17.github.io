@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Credits — Stem Separator Web</title><link rel="stylesheet" href="../../../assets/site.css"><style>main{max-width:760px;padding:55px 0}h1{font-size:2.7rem;margin:22px 0}h2{font-size:1.3rem;margin:30px 0 12px}p,li{font-size:.9rem;color:var(--muted);line-height:1.8}a{text-decoration:underline;text-underline-offset:3px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.7rem;line-height:1.8;color:var(--muted);padding:22px;background:#fff;border:1px solid var(--line);border-radius:12px}</style></head><body><div class="wrap"><main><a href="./">← Back to Stem Separator Web</a><h1>Built on open research.</h1><p>The interface and local processing workflow are part of Tech with DV. The model estimates six categories; it does not recover the original studio recordings.</p><h2>Separation model</h2><p><a href="https://huggingface.co/StemSplitio/htdemucs-6s-onnx">HT-Demucs 6-stem ONNX conversion by StemSplit</a>, based on the <a href="https://github.com/facebookresearch/demucs">Demucs research by Rouard, Massa, and Défossez</a>. The app downloads the public model directly from Hugging Face at a pinned version, then checks its SHA-256. The conversion’s publisher labels it MIT. We do not host a copy of its weights in this website repository.</p><p>Model revision: <code>49df9b6989cf2150840ea65b0bef77a2e471b678</code><br>SHA-256: <code style="overflow-wrap:anywhere">7ce55792e2231c93fbf92de95f5fd5b3a5e6c89f7db690dfd693e8f1dce56869</code></p><h2>Runtime</h2><p><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime Web 1.31.1</a> by Microsoft, MIT license. Runtime files load from the jsDelivr public CDN. Inference runs on the browser CPU in a local background worker.</p><h2>Browser integration</h2><p>Model shape, stem order, and overlap-add integration follow the <a href="https://github.com/StemSplit/demucs-onnx">demucs-onnx reference project</a>. The overlap window in this app retains nonzero endpoints to preserve boundary samples.</p><pre id="license">MIT License
+
+Copyright (c) 2026 StemSplit
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre><h2>Privacy and storage</h2><p>Audio is read and processed on your computer. This app has no audio-upload endpoint, separation API, account, or analytics. GitHub Pages, the runtime CDN, and the model host receive normal requests for their public files. The browser can cache the model if you choose; the app stores no song files between visits. Close the tab to release its in-memory audio, or use Clear downloaded model to remove its model cache.</p></main></div></body></html>
