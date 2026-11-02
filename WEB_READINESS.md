@@ -53,6 +53,11 @@ and below clipping. ZIP integrity passes, and the individual vocals download
 matches its ZIP entry byte for byte. Native browser preview and drums playback
 both reached readyState 4 and played.
 
+The final generated eight-second demo also completed and its six WAVs passed
+the same structural and ZIP checks. That run took 2 minutes 59 seconds including
+download/setup. The difference from the initial 43-second fixture run shows
+that timings vary substantially with system and browser conditions.
+
 A 35-second stereo fixture with the first-30-second option completed five model
 sections in 7 minutes 41 seconds using the cached model. All six exported WAVs
 contain exactly 1,323,000 frames (30 seconds), stereo 44.1 kHz PCM24, with finite
