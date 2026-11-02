@@ -58,6 +58,13 @@ the same structural and ZIP checks. That run took 2 minutes 59 seconds including
 download/setup. The difference from the initial 43-second fixture run shows
 that timings vary substantially with system and browser conditions.
 
+The deployed HTTPS GitHub Pages app completed the generated demo in 3 minutes
+53 seconds including a fresh model/runtime download and setup. The live ZIP
+passed integrity checks and contains six aligned 352,800-frame PCM24 stereo
+WAVs, byte-for-byte identical to the local demo exports. Drums playback reached
+readyState 4 and played. The final live layout fits a 390-pixel viewport without
+horizontal overflow. The homepage and app details both open the browser app.
+
 A 35-second stereo fixture with the first-30-second option completed five model
 sections in 7 minutes 41 seconds using the cached model. All six exported WAVs
 contain exactly 1,323,000 frames (30 seconds), stereo 44.1 kHz PCM24, with finite
